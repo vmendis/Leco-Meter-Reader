@@ -6,7 +6,7 @@
 Build a simple but scalable Android application for personal electricity usage tracking and solar planning analysis.
 
 The app will:
-- Capture LECO smart meter readings twice daily
+- Capture LECO smart meter readings twice daily. Meter readings may occasionally be unavailable for various reasons, such as the user forgetting to read the meter or being unavailable to do so. 
 - Store data locally on the Android device
 - Calculate electricity usage patterns
 - Produce graphs and analytics
