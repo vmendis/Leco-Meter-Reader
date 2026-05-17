@@ -77,9 +77,8 @@ The app should support configurable tariff values.
 
 ---
 
-# 2. Clarification Questions
 
-## 2.1 User Model
+## 2 User Model
 
 - Single user
 - Offline only
@@ -89,7 +88,7 @@ The app should support configurable tariff values.
 
 ---
 
-## 2.2 Target Devices
+## 3 Target Devices
 
 - Android phone only
 - Portrait orientation priority
@@ -98,7 +97,7 @@ The app should support configurable tariff values.
 
 ---
 
-## 2.3 Data Entry Method
+## 4 Data Entry Method
 
 User manually types:
 - Total Reading 
@@ -114,7 +113,7 @@ Phase 1 Scope:
 
 ---
 
-## 2.4 Validation Rules
+## 5 Validation Rules
 
 Required validation features:
 
@@ -137,7 +136,7 @@ Additional recommendation:
 
 ---
 
-## 2.5 Cost Estimation
+## 6 Cost Estimation
 
 Required features:
 
@@ -157,7 +156,7 @@ Critical Requirement:
 
 ---
 
-## 2.6 Solar Planning Features - Not required in MVP
+## 7 Solar Planning Features - Not required in MVP
 
 Phase 1 Requirement:
 Start with Advanced solar planning capabilities.
@@ -191,7 +190,7 @@ Recommendation:
 
 ---
 
-## 2.7 Graphs & Analytics
+## 8 Graphs & Analytics
 
 Required graphs:
 
@@ -221,7 +220,7 @@ Recommended chart library:
 
 ---
 
-## 2.8 Export Features
+## 9 Export Features
 
 Required export format:
 
@@ -236,7 +235,7 @@ Recommended CSV capabilities:
 
 ---
 
-## 2.9 Data Retention
+## 10 Data Retention
 
 Expected usage:
 - Short-term analysis exercise
@@ -249,7 +248,7 @@ Design implication:
 
 ---
 
-## 2.10 App Complexity Preference
+## 11 App Complexity Preference
 - Modern 
 - Graphs
 - Tabs
@@ -266,7 +265,7 @@ Requirements:
 
 ---
 
-# 3. Recommended Technical Architecture
+# Recommended Technical Architecture
 
 ## Core Stack
 
@@ -302,9 +301,9 @@ Recommendation:
 
 ---
 
-# 4. Suggested Database Design
+# Suggested Database Design
 
-## 4.1 Raw Meter Readings Table
+##  Raw Meter Readings Table
 
 | Field | Type |
 |---|---|
@@ -319,7 +318,7 @@ Recommendation:
 
 ---
 
-## 4.2 Calculated Usage Table
+##  Calculated Usage Table
 
 Derived from differences between consecutive readings.
 
@@ -337,7 +336,7 @@ Derived from differences between consecutive readings.
 
 ---
 
-## 4.3 Tariff Configuration Table
+##  Tariff Configuration Table
 
 | Field | Type |
 |---|---|
@@ -349,7 +348,7 @@ Derived from differences between consecutive readings.
 
 ---
 
-# 5. Suggested Application Screens
+# Suggested Application Screens
 
 ## Phase 1 Screens
 
@@ -411,7 +410,7 @@ Outputs:
 
 ---
 
-# 6. Suggested Development Phases
+# Suggested Development Phases
 
 ## Phase 1 — Core Logging App
 
@@ -471,7 +470,7 @@ Possible additions:
 
 ---
 
-# 7. Recommended Validation Logic
+# Recommended Validation Logic
 
 Potential rules:
 
@@ -484,7 +483,7 @@ Potential rules:
 
 ---
 
-# 8. Suggested UX Features
+# Suggested UX Features
 
 Possible UX improvements:
 
@@ -498,7 +497,7 @@ Possible UX improvements:
 
 ---
 
-# 9. RooCode AI Agent Guidance
+# RooCode AI Agent Guidance
 
 The project should be built incrementally.
 
@@ -518,7 +517,7 @@ Recommended RooCode workflow:
 
 ---
 
-# 10. Possible breakdown of tasks
+# Possible breakdown of tasks
 
 ## 1 — Create Project Skeleton
 
@@ -577,7 +576,7 @@ Requirements:
 
 ---
 
-# 11. Notes & Future Ideas
+# Notes & Future Ideas
 
 Potential future enhancements:
 
@@ -592,7 +591,7 @@ Potential future enhancements:
 
 ---
 
-# 12. Reference Information
+# Reference Information
 
 Approximate LECO TOU timing:
 
