@@ -158,10 +158,7 @@ Critical Requirement:
 
 ## 7 Solar Planning Features - Not required in MVP
 
-Phase 1 Requirement:
-Start with Advanced solar planning capabilities.
-
-Required Phase 1 features:
+Required features:
 
 - Solar panel sizing
 - Battery sizing
@@ -436,9 +433,6 @@ Goals:
 
 ## Phase 3 — Solar Planning Features - not in MVP
 
-Note:
-Solar planning features are considered high priority and should begin immediately after
-analytics implementation.
 
 Primary goals:
 - Battery sizing
