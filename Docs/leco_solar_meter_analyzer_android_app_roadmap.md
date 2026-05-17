@@ -81,13 +81,6 @@ The app should support configurable tariff values.
 
 ## 2.1 User Model
 
-Questions:
-- Will only one user use the app?
-- Should login/accounts exist?
-- Should cloud sync be supported?
-- Should backup/export/import exist?
-
-Final Decision:
 - Single user
 - Offline only
 - No login/accounts
@@ -98,7 +91,6 @@ Final Decision:
 
 ## 2.2 Target Devices
 
-Final Decision:
 - Android phone only
 - Portrait orientation priority
 - Tablet support not required
@@ -108,14 +100,11 @@ Final Decision:
 
 ## 2.3 Data Entry Method
 
-Final Decision:
-
-### Option A — Manual Entry
 User manually types:
-- Total
-- Rate 1
-- Rate 2
-- Rate 3
+- Total Reading 
+- Rate 1 Day Usage
+- Rate 2  Off-Peak Usage
+- Rate 3 Peak Usage
 
 Phase 1 Scope:
 - Manual entry only
@@ -134,6 +123,8 @@ Required validation features:
 - Warning if totals mismatch
 - Detection of impossible values
 - Duplicate reading detection
+- Meter readings may occasionally be unavailable for various reasons, such as the user
+forgetting to read the meter or being unavailable to do so
 
 Validation behaviour:
 - Invalid entries must be blocked
@@ -161,14 +152,12 @@ Critical Requirement:
 - Support fixed monthly charges
 - Tariff values must be configurable
 - Tariff history should support future tariff changes
-
-Recommendation:
 - Build billing engine as an isolated service/module
 - Make tariff rules configurable from database
 
 ---
 
-## 2.6 Solar Planning Features
+## 2.6 Solar Planning Features - Not required in MVP
 
 Phase 1 Requirement:
 Start with Advanced solar planning capabilities.
@@ -261,27 +250,11 @@ Design implication:
 ---
 
 ## 2.10 App Complexity Preference
-
-Options:
-
-### A — Extremely Simple
-- Basic UI
-- Fastest development
-
-### B — Medium Polish
-- Modern UI
+- Modern 
 - Graphs
 - Tabs
 - Material Design
 
-### C — Professional
-- Animations
-- Widgets
-- Cloud backup
-- Advanced analytics
-
-Final Decision:
-- Option B — Medium Polish
 
 Requirements:
 - Modern Material 3 UI
@@ -323,11 +296,6 @@ Reasons:
 
 ## Graphing Libraries
 
-Possible choices:
-
-- MPAndroidChart
-- Compose Charts
-- Vico Charts
 
 Recommendation:
 - Vico Charts or MPAndroidChart
@@ -399,9 +367,9 @@ Displays:
 Fields:
 - Timestamp
 - Total Reading
-- Rate 1
-- Rate 2
-- Rate 3
+- Rate 1  Day Usage
+- Rate 2  Off-Peak Usage
+- Rate 3  Peak Usage
 - Notes
 
 ### History Screen
@@ -415,7 +383,7 @@ Displays:
 
 ---
 
-## Phase 2 Screens
+## Phase 2 Screens - not in MVP
 
 ### Analytics Screen
 Charts and trends.
@@ -428,7 +396,7 @@ Usage by tariff category.
 
 ---
 
-## Phase 3 Screens
+## Phase 3 Screens - not in MVP
 
 ### Solar Planner
 Inputs:
@@ -467,7 +435,7 @@ Goals:
 
 ---
 
-## Phase 2.5 — Solar Planning Features (High Priority)
+## Phase 2.5 — Solar Planning Features (High Priority) - not in MVP
 
 Note:
 Solar planning features are considered high priority and should begin immediately after analytics implementation.
@@ -482,7 +450,7 @@ Primary goals:
 
 ---
 
-## Phase 3 — Advanced Features
+## Phase 3 — Advanced Features - not in MVP
 
 Goals:
 - Battery sizing
@@ -492,7 +460,7 @@ Goals:
 
 ---
 
-## Phase 4 — Advanced Features
+## Phase 4 — Advanced Features - not in MVP
 
 Possible additions:
 - OCR meter scanning
@@ -507,7 +475,7 @@ Possible additions:
 
 Potential rules:
 
-- New readings must be >= previous readings
+- New readings must be >= previous readings or blank
 - Delta calculations auto-generated
 - Total delta should roughly equal Rate1 + Rate2 + Rate3 deltas
 - Warn on abnormal spikes
