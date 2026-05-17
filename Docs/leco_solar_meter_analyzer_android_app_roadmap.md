@@ -382,7 +382,7 @@ Displays:
 
 ---
 
-## Phase 2 Screens - not in MVP
+## Phase 2 Screens
 
 ### Analytics Screen
 Charts and trends.
@@ -434,10 +434,11 @@ Goals:
 
 ---
 
-## Phase 2.5 — Solar Planning Features (High Priority) - not in MVP
+## Phase 3 — Solar Planning Features - not in MVP
 
 Note:
-Solar planning features are considered high priority and should begin immediately after analytics implementation.
+Solar planning features are considered high priority and should begin immediately after
+analytics implementation.
 
 Primary goals:
 - Battery sizing
@@ -449,7 +450,7 @@ Primary goals:
 
 ---
 
-## Phase 3 — Advanced Features - not in MVP
+## Phase 3.1 — Advanced Features - not in MVP
 
 Goals:
 - Battery sizing
