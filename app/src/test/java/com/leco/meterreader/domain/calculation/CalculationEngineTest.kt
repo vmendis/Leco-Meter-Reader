@@ -105,7 +105,7 @@ class CalculationEngineTest {
     }
 
     @Test
-    fun `getTouCategory returns OFF_PEAK for 22:30`() {
+    fun `getTouCategory returns OFF_PEAK for 22 30`() {
         val timestamp = createDate(2024, 1, 1, 22, 30)
         
         val category = engine.getTouCategory(timestamp)
@@ -114,7 +114,7 @@ class CalculationEngineTest {
     }
 
     @Test
-    fun `getTouCategory returns OFF_PEAK for 05:00`() {
+    fun `getTouCategory returns OFF_PEAK for 05 00`() {
         val timestamp = createDate(2024, 1, 1, 5, 0)
         
         val category = engine.getTouCategory(timestamp)
@@ -123,7 +123,7 @@ class CalculationEngineTest {
     }
 
     @Test
-    fun `getTouCategory returns DAY for 05:30`() {
+    fun `getTouCategory returns DAY for 05 30`() {
         val timestamp = createDate(2024, 1, 1, 5, 30)
         
         val category = engine.getTouCategory(timestamp)
@@ -132,7 +132,7 @@ class CalculationEngineTest {
     }
 
     @Test
-    fun `getTouCategory returns DAY for 12:00`() {
+    fun `getTouCategory returns DAY for 12 00`() {
         val timestamp = createDate(2024, 1, 1, 12, 0)
         
         val category = engine.getTouCategory(timestamp)
@@ -141,7 +141,7 @@ class CalculationEngineTest {
     }
 
     @Test
-    fun `getTouCategory returns DAY for 18:00`() {
+    fun `getTouCategory returns DAY for 18 00`() {
         val timestamp = createDate(2024, 1, 1, 18, 0)
         
         val category = engine.getTouCategory(timestamp)
@@ -150,7 +150,7 @@ class CalculationEngineTest {
     }
 
     @Test
-    fun `getTouCategory returns PEAK for 18:30`() {
+    fun `getTouCategory returns PEAK for 18 30`() {
         val timestamp = createDate(2024, 1, 1, 18, 30)
         
         val category = engine.getTouCategory(timestamp)
@@ -159,7 +159,7 @@ class CalculationEngineTest {
     }
 
     @Test
-    fun `getTouCategory returns PEAK for 21:00`() {
+    fun `getTouCategory returns PEAK for 21 00`() {
         val timestamp = createDate(2024, 1, 1, 21, 0)
         
         val category = engine.getTouCategory(timestamp)
@@ -168,7 +168,7 @@ class CalculationEngineTest {
     }
 
     @Test
-    fun `getTouCategory returns PEAK for 22:00`() {
+    fun `getTouCategory returns PEAK for 22 00`() {
         val timestamp = createDate(2024, 1, 1, 22, 0)
         
         val category = engine.getTouCategory(timestamp)
@@ -177,7 +177,7 @@ class CalculationEngineTest {
     }
 
     @Test
-    fun `getTouCategory returns OFF_PEAK for 22:29`() {
+    fun `getTouCategory returns PEAK for 22 29`() {
         val timestamp = createDate(2024, 1, 1, 22, 29)
         
         val category = engine.getTouCategory(timestamp)
@@ -186,7 +186,7 @@ class CalculationEngineTest {
     }
 
     @Test
-    fun `getTouCategory returns OFF_PEAK for 05:29`() {
+    fun `getTouCategory returns OFF_PEAK for 05 29`() {
         val timestamp = createDate(2024, 1, 1, 5, 29)
         
         val category = engine.getTouCategory(timestamp)

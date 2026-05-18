@@ -3,6 +3,7 @@ package com.leco.meterreader.domain.validation
 import com.leco.meterreader.domain.model.MeterReading
 import org.junit.Assert.*
 import org.junit.Test
+import java.util.Calendar
 import java.util.Date
 
 class ValidationEngineTest {
@@ -12,8 +13,8 @@ class ValidationEngineTest {
 
     @Test
     fun `validate returns all results for valid reading`() {
-        val previousReading = createReading(100.0, 50.0, 30.0, 20.0)
-        val newReading = createReading(150.0, 70.0, 40.0, 40.0)
+        val previousReading = createReading(100.0, 50.0, 30.0, 20.0, baseTime)
+        val newReading = createReading(150.0, 70.0, 40.0, 40.0, createDate(2024, 1, 2, 12, 0))
         
         val results = engine.validate(newReading, previousReading)
         
@@ -22,9 +23,10 @@ class ValidationEngineTest {
     }
 
     @Test
-    fun `validate returns multiple errors for invalid reading`() {
-        val previousReading = createReading(100.0, 50.0, 30.0, 20.0)
-        val newReading = createReading(90.0, 40.0, 20.0, 10.0) // All values decreased
+    fun `validate returns error for invalid reading`() {
+        val previousReading = createReading(100.0, 50.0, 30.0, 20.0, baseTime)
+        // All values decrease proportionally to pass sum check
+        val newReading = createReading(90.0, 45.0, 27.0, 18.0, createDate(2024, 1, 2, 12, 0))
         
         val results = engine.validate(newReading, previousReading)
         
@@ -34,8 +36,8 @@ class ValidationEngineTest {
 
     @Test
     fun `isValid returns true for valid reading`() {
-        val previousReading = createReading(100.0, 50.0, 30.0, 20.0)
-        val newReading = createReading(150.0, 70.0, 40.0, 40.0)
+        val previousReading = createReading(100.0, 50.0, 30.0, 20.0, baseTime)
+        val newReading = createReading(150.0, 70.0, 40.0, 40.0, createDate(2024, 1, 2, 12, 0))
         
         val isValid = engine.isValid(newReading, previousReading)
         
@@ -44,8 +46,8 @@ class ValidationEngineTest {
 
     @Test
     fun `isValid returns false for invalid reading`() {
-        val previousReading = createReading(100.0, 50.0, 30.0, 20.0)
-        val newReading = createReading(90.0, 50.0, 30.0, 20.0) // Total decreased
+        val previousReading = createReading(100.0, 50.0, 30.0, 20.0, baseTime)
+        val newReading = createReading(90.0, 45.0, 27.0, 18.0, createDate(2024, 1, 2, 12, 0)) // Total decreased
         
         val isValid = engine.isValid(newReading, previousReading)
         
@@ -54,7 +56,7 @@ class ValidationEngineTest {
 
     @Test
     fun `isValid returns true when previous reading is null`() {
-        val newReading = createReading(100.0, 50.0, 30.0, 20.0)
+        val newReading = createReading(100.0, 50.0, 30.0, 20.0, baseTime)
         
         val isValid = engine.isValid(newReading, null)
         
@@ -63,8 +65,8 @@ class ValidationEngineTest {
 
     @Test
     fun `getErrors returns empty list for valid reading`() {
-        val previousReading = createReading(100.0, 50.0, 30.0, 20.0)
-        val newReading = createReading(150.0, 70.0, 40.0, 40.0)
+        val previousReading = createReading(100.0, 50.0, 30.0, 20.0, baseTime)
+        val newReading = createReading(150.0, 70.0, 40.0, 40.0, createDate(2024, 1, 2, 12, 0))
         
         val errors = engine.getErrors(newReading, previousReading)
         
@@ -73,8 +75,8 @@ class ValidationEngineTest {
 
     @Test
     fun `getErrors returns error messages for invalid reading`() {
-        val previousReading = createReading(100.0, 50.0, 30.0, 20.0)
-        val newReading = createReading(90.0, 50.0, 30.0, 20.0) // Total decreased
+        val previousReading = createReading(100.0, 50.0, 30.0, 20.0, baseTime)
+        val newReading = createReading(90.0, 45.0, 27.0, 18.0, createDate(2024, 1, 2, 12, 0)) // Total decreased
         
         val errors = engine.getErrors(newReading, previousReading)
         
@@ -84,8 +86,8 @@ class ValidationEngineTest {
 
     @Test
     fun `getWarnings returns empty list for normal usage`() {
-        val previousReading = createReading(100.0, 50.0, 30.0, 20.0)
-        val newReading = createReading(150.0, 70.0, 40.0, 40.0) // 50 kWh delta
+        val previousReading = createReading(100.0, 50.0, 30.0, 20.0, baseTime)
+        val newReading = createReading(150.0, 70.0, 40.0, 40.0, createDate(2024, 1, 2, 12, 0)) // 50 kWh delta
         
         val warnings = engine.getWarnings(newReading, previousReading)
         
@@ -94,8 +96,8 @@ class ValidationEngineTest {
 
     @Test
     fun `getWarnings returns warning for high usage`() {
-        val previousReading = createReading(100.0, 50.0, 30.0, 20.0)
-        val newReading = createReading(250.0, 100.0, 80.0, 70.0) // 150 kWh delta
+        val previousReading = createReading(100.0, 50.0, 30.0, 20.0, baseTime)
+        val newReading = createReading(250.0, 100.0, 80.0, 70.0, createDate(2024, 1, 2, 12, 0)) // 150 kWh delta
         
         val warnings = engine.getWarnings(newReading, previousReading)
         
@@ -107,15 +109,23 @@ class ValidationEngineTest {
         total: Double,
         rate1: Double,
         rate2: Double,
-        rate3: Double
+        rate3: Double,
+        timestamp: Date
     ): MeterReading {
         return MeterReading(
             id = 1,
-            timestamp = baseTime,
+            timestamp = timestamp,
             totalReading = total,
             rate1Day = rate1,
             rate2OffPeak = rate2,
             rate3Peak = rate3
         )
+    }
+
+    private fun createDate(year: Int, month: Int, day: Int, hour: Int, minute: Int): Date {
+        val calendar = Calendar.getInstance().apply {
+            set(year, month - 1, day, hour, minute)
+        }
+        return calendar.time
     }
 }

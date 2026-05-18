@@ -40,7 +40,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.6.11'
+        kotlinCompilerExtensionVersion '1.5.14'
     }
     packaging {
         resources {
@@ -81,10 +81,10 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2'
     implementation 'androidx.lifecycle:lifecycle-runtime-compose:2.8.2'
     
-    // Vico Charts
-    implementation "io.github.patrykandpatrick.vico:core:0.13.0"
-    implementation "io.github.patrykandpatrick.vico:compose:0.13.0"
-    implementation "io.github.patrykandpatrick.vico:compose-m3:0.13.0"
+    // Vico Charts - Temporarily disabled due to repository issues
+    // implementation "io.github.patrykandpatrick.vico:core:0.11.0"
+    // implementation "io.github.patrykandpatrick.vico:compose:0.11.0"
+    // implementation "io.github.patrykandpatrick.vico:compose-m3:0.11.0"
     
     // Testing
     testImplementation 'junit:junit:4.13.2'
