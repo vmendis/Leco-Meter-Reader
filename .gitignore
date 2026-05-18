@@ -31,6 +31,7 @@ local.properties
 *.dat
 *.sdf
 *.tmp
+/tmp/
 *.bak
 *.swp
 *.swo
