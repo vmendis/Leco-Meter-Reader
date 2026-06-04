@@ -5,6 +5,11 @@
 - Kotlin Coroutines & Flow
 
 ---
+# Status as of 4.June.2026
+Initial UI is generated. But, requires fine tuning.
+Coding halted due to other commitments.
+
+
 
 # Project Goals
 
